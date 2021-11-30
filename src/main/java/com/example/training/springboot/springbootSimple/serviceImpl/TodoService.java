@@ -25,17 +25,9 @@ static {
 	todoArray.add(new Todo(4, "Raghav", "Learn", new Date(),
             false));
 }
-public void addTodo(int id, String name, String desc, Date date, boolean isDone)  {
+public void addTodo(int id, String name, String desc, Date date)  {
 		
-    SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");  
-//   Date date2=null;
-//try {
-//	date2 = formatter1.parse(date);
-//} catch (ParseException e) {
-//	// TODO Auto-generated catch block
-//	e.printStackTrace();
-//}  
-    todoArray.add(new Todo(id,name,desc,date,isDone));
+    todoArray.add(new Todo(id,name,desc,date,true));
 }
 
 public List<Todo> getTodo(String user) {
@@ -78,22 +70,16 @@ public Todo retrieveTodo(int id) {
 	return null;
 }
 
-public void updateTodo(int id, String name, String desc, Date date, boolean isDone)  {
+public void updateTodo(int id, String name, String desc,Date date)  {
 	
     SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");  
-//   Date date2=null;
-//try {
-//	date2 = formatter1.parse(date);
-//} catch (ParseException e) {
-//	// TODO Auto-generated catch block
-//	e.printStackTrace();
-//}  
+
 	Iterator<Todo> iterator = todoArray.iterator();
 	for(Todo utodo:todoArray) {
 		if(utodo.getId()==id) {
 			todoArray.remove(utodo);
 
-		    todoArray.add(new Todo(id,name,desc,date,isDone));
+		    todoArray.add(new Todo(id,name,desc,date,true));
 		}
 			
 	}
